@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.W.W. Family Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+    <style>
+        /* Optional: Make the scrolling smooth in the CSS */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navigation Bar with Home Link -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">A.W.W. Helpers</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ngo-login.html">NGO/Helper Login</a></li>
+            <li><a href="ngo-signup.html">NGO/Helper Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <div class="container" id="signup-section">
+        <div class="signup-form">
+            <h2>Create Your Account</h2>
+            <form action="ngo-signup.php" method="POST">
+                <label for="username"><h4>Username:</h4></label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+                <label for="email"><h4>Email:</h4></label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="phone"><h4>Phone Number:</h4></label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                <label for="password"><h4>Password:</h4></label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <label for="confirm-password"><h4>Confirm Password:</h4></label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
+                <h4>Address</h4>
+
+                <label for="address-line1">Address Line 1:</label>
+                <input type="text" id="address-line1" name="address-line1" placeholder="House No, Street" required>
+
+                <label for="address-line2">Address Line 2:</label>
+                <input type="text" id="address-line2" name="address-line2" placeholder="Area, Locality">
+
+                <label for="landmark">Landmark:</label>
+                <input type="text" id="landmark" name="landmark" placeholder="Near XYZ">
+
+                <label for="pincode">Pincode:</label>
+                <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="signup-link">Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+
+        <div class="animal-theme">
+            <img src="https://img.freepik.com/premium-vector/cute-cat-vector-white-background_1026278-3735.jpg" alt="Cat">
+            <img src="https://icons.iconarchive.com/icons/iconarchive/cute-animal/512/Cute-Dog-icon.png" alt="Dog">
+            <h3>Welcome to the A.W.W. Family</h3>
+        </div>
+    </div>
+</body>
+</html>

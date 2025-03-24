@@ -1,0 +1,218 @@
+/* Reset styles for consistent rendering */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header and Navigation Bar */
+header {
+    background: #f54ea2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+nav .logo {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, rgba(245, 78, 162, 0.8), rgba(255, 118, 118, 0.8)), url('https://your-image-url.com/hero-image.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeIn 1s forwards 0.5s; /* Animation on load */
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeIn 1s forwards 0.7s; /* Animation on load */
+}
+
+.cta-buttons .btn {
+    background: #ff7676;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.cta-buttons .btn:hover {
+    background: #ff4a4a;
+}
+
+/* Features Section */
+.features {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item h3 {
+    margin-bottom: 10px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background: #fff3f3;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonials h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.testimonial-carousel {
+    position: relative;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.testimonial {
+    display: none;
+    margin-bottom: 20px;
+    font-size: 18px;
+    opacity: 0; /* Fade-in effect */
+    animation: fadeIn 0.5s forwards; /* Animation on load */
+}
+
+.testimonial cite {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.carousel-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #f54ea2;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-btn.prev {
+    left: -40px;
+}
+
+.carousel-btn.next {
+    right: -40px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #f54ea2;
+    color: white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .feature-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-item {
+        width: 90%;
+    }
+
+    .carousel-btn {
+        font-size: 24px;
+    }
+}

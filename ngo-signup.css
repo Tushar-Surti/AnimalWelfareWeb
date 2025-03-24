@@ -1,0 +1,131 @@
+/* NGO/Helper Signup Page Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header and Navigation Bar */
+header {
+    width: 100%;
+    background-color: #f54ea2; /* Pink background */
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    text-decoration: underline;
+}
+
+/* Main body styles */
+body {
+    background: linear-gradient(135deg, #f54ea2, #ff7676);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+/* Signup form styles */
+.signup-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    width: 400px;
+    margin: 20px auto;
+}
+
+.signup-page h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+}
+
+.signup-page form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.signup-page label {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.signup-page input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.signup-page input:focus {
+    outline: none;
+    border-color: #ff7676;
+}
+
+.signup-page button {
+    padding: 12px;
+    background: linear-gradient(135deg, #f54ea2, #ff7676);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signup-page button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 118, 118, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .signup-page {
+        width: 100%;
+        padding: 20px;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Data Insertion | A.W.W. Helpers</title>
+    <link rel="stylesheet" href="animal_insertion.css"> <!-- Using the homepage CSS -->
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">A.W.W. Helpers</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="logout.php">Logout</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content for Animal Data Form -->
+    <section class="container">
+        <h2>Submit Animal Data</h2>
+        <form action="animal_insertion.php" method="POST">
+            <!-- The form remains unchanged -->
+            <label for="animal-name">Animal Name:</label>
+            <input type="text" id="animal-name" name="animal-name" placeholder="Enter animal name" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Enter animal description" required></textarea>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="Enter address" required>
+
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" placeholder="Enter pincode" required>
+            <label for="conatct">Contact:</label>
+            <input type="text" id="contact" name="contact" placeholder="Enter contact " required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 A.W.W. Helpers. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

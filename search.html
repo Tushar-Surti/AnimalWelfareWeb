@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Animals</title>
+    <style>
+        /* Body styling for a vibrant gradient background */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f54ea2, #ff7676);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* Container styling with soft shadows and rounded corners */
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Header text color and styling */
+        .container h2 {
+            margin-bottom: 20px;
+            color: #ff3f72;
+            font-weight: bold;
+        }
+
+        /* Input box styling */
+        .container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ff9bb5;
+            box-shadow: inset 0 2px 4px rgba(255, 110, 132, 0.15);
+            font-size: 1rem;
+        }
+
+        /* Button styling with a bright pink background */
+        .container input[type="submit"] {
+            background-color: #ff3f72;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .container input[type="submit"]:hover {
+            background-color: #e03566;
+        }
+
+        /* Results section styling */
+        .results {
+            margin-top: 20px;
+            text-align: left;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Search Animals Nearby</h2>
+    <form action="search.php" method="POST">
+        <input type="text" name="pincode" placeholder="Enter pincode" required>
+        <input type="submit" value="Search">
+    </form>
+    <div class="results">
+        <!-- Results will appear here -->
+    </div>
+</div>
+
+</body>
+</html>

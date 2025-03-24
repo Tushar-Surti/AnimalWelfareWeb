@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - A.W.W. Family</title>
+    <link rel="stylesheet" href="user-dasboard.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">A.W.W. Helpers</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ngo-login.html">NGO/Helper Login</a></li>
+                <li><a href="ngo-signup.html">NGO/Helper Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <div class="container">
+        <div class="dashboard">
+            <h2>Welcome, <?php echo htmlspecialchars($_SESSION['user_id']); ?>!</h2>
+            <p>Your user ID: <?php echo htmlspecialchars($_SESSION['user_id']); ?></p>
+            <p>Your role: <?php echo htmlspecialchars($_SESSION['role']); ?></p>
+            <p>Your account is active. Here are your options:</p>
+            <ul class="dashboard-links">
+                <li><a href="view-profile.php">View Profile</a></li>
+                <li><a href="update-profile.php">Update Profile</a></li>
+                <li><a href="search-ngos.php">Search for NGOs</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </div>
+
+        <div class="animal-theme">
+            <img src="https://img.freepik.com/premium-vector/cute-cat-vector-white-background_1026278-3735.jpg" alt="Cat">
+            <img src="https://icons.iconarchive.com/icons/iconarchive/cute-animal/512/Cute-Dog-icon.png" alt="Dog">
+            <h3>Thank you for being a part of the A.W.W. Family!</h3>
+        </div>
+    </div>
+    
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Sign Up - A.W.W. Helpers</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">A.W.W. Helpers</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ngo-login.html">NGO/Helper Login</a></li>
+                <li><a href="ngo-signup.html">NGO/Helper Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="signup-form">
+        <h2>Create Your Account</h2>
+        <form action="signup.php" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
+            <button type="submit">Sign Up</button>
+        
+        </form>
+        <p class="signup-link">Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+    <div class="animal-theme">
+        <img src="cat.png" alt="Cat">
+        <img src="https://icons.iconarchive.com/icons/iconarchive/cute-animal/512/Cute-Dog-icon.png" alt="Dog">
+        <h3>Welcome to the A.W.W. Family</h3>
+    </div>
+</div>
+
+                
+    
+    
+    
+    <footer>
+        <p>&copy; 2024 A.W.W. Helpers. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

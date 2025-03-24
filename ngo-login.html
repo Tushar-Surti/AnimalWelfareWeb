@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO/Helper Login</title>
+    <link rel="stylesheet" href="ngo-login.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">A.W.W. Helpers</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ngo-login.html">NGO/Helper Login</a></li>
+                <li><a href="ngo-signup.html"></a>NGO/Helper Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="login-form">
+            <h2>NGO/Helper Login</h2>
+            <form action="ngo-login.php" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter Username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="ngo-signup.html">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>
