@@ -5,77 +5,337 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to A.W.W. Helpers</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-heart"></i>
+                <span>A.W.W. Helpers</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <p class="loading-text">Loading amazing content...</p>
+        </div>
+    </div>
     <!-- Header Section with Navigation -->
     <header>
-        <nav>
-            <a href="index.html" class="logo">A.W.W. Helpers</a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="ngo-login.html">NGO/Helper Login</a></li>
-                <li><a href="ngo-signup.html">NGO/Helper Sign Up</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-            </ul>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-heart"></i>
+                    <span>A.W.W. Helpers</span>
+                </a>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                    <a href="ngo-login.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        NGO/Helper Login
+                    </a>
+                    <a href="ngo-signup.html" class="nav-link">
+                        <i class="fas fa-user-plus"></i>
+                        NGO/Helper Sign Up
+                    </a>
+                    <a href="login.html" class="nav-link">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </a>
+                    <a href="signup.html" class="nav-link">
+                        <i class="fas fa-user-plus"></i>
+                        Sign Up
+                    </a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-text">
-            <h1 class="fade-in">Find and Support Animal Helpers Near You</h1>
-            <p class="fade-in">Join our community and get access to local NGOs, animal shelters, and volunteers who are passionate about helping animals.</p>
-            <div class="cta-buttons">
-                <a href="signup.html" class="btn">Sign Up</a>
-                <a href="login.html" class="btn">Login</a>
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+                <div class="shape shape-6"></div>
+                <div class="shape shape-7"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="highlight-text">Find and Support</span><br>
+                    Animal Helpers Near You
+                </h1>
+                <p class="hero-description">
+                    Join our passionate community and connect with local NGOs, animal shelters, and volunteers who are making a real difference in animal welfare.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Animals Helped</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">NGOs Connected</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Active Volunteers</span>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="signup.html" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i>
+                        Get Started
+                    </a>
+                    <a href="login.html" class="btn btn-secondary">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="cat.png" alt="Rescued animal" class="hero-img">
+                <div class="floating-card">
+                    <i class="fas fa-heart text-primary"></i>
+                    <p>Making a difference together</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2>How It Works</h2>
-        <div class="feature-list">
-            <div class="feature-item">
-                <h3>Find NGOs and Helpers</h3>
-                <p>Access a verified database of animal NGOs and individual helpers around you.</p>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Simple steps to connect with animal welfare organizations</p>
             </div>
-            <div class="feature-item">
-                <h3>Volunteer or Donate</h3>
-                <p>Support local initiatives through volunteering or making donations.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Real-Time Location</h3>
-                <p>Get real-time information on NGOs and helpers in your vicinity.</p>
+            <div class="feature-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Find NGOs and Helpers</h3>
+                    <p>Access a verified database of animal NGOs and individual helpers around you with real-time location data.</p>
+                    <div class="feature-badge">Verified</div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Volunteer or Donate</h3>
+                    <p>Support local initiatives through volunteering your time or making secure donations to trusted organizations.</p>
+                    <div class="feature-badge">Secure</div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Real-Time Location</h3>
+                    <p>Get instant information on NGOs and helpers in your vicinity with GPS-powered location services.</p>
+                    <div class="feature-badge">Live</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-        <h2><center>What Our Users Say</center></h2>
-        <div class="testimonial-container">
-            <div class="testimonial">
-                <p>"This platform helped me find a local shelter when I needed to rescue a stray. It's amazing!"</p>
-                <cite>- Jane D.</cite>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Users Say</h2>
+                <p class="section-subtitle">Real stories from our amazing community</p>
             </div>
-            <div class="testimonial">
-                <p>"Thanks to A.W.W. Helpers, I started volunteering with a great NGO in my city."</p>
-                <cite>- Alex K.</cite>
-            </div>
-            <div class="testimonial">
-                <p>"I love being able to connect with local animal helpers and organizations. It's a lifesaver!"</p>
-                <cite>- Sam P.</cite>
+            <div class="testimonial-container">
+                <div class="testimonial-carousel">
+                    <div class="testimonial active" data-index="0">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"This platform helped me find a local shelter when I needed to rescue a stray. The response was immediate and the help was incredible!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <cite>Jane D.</cite>
+                                    <span>Animal Lover</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial" data-index="1">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Thanks to A.W.W. Helpers, I started volunteering with a great NGO in my city. It's been the most rewarding experience of my life."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <cite>Alex K.</cite>
+                                    <span>Volunteer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial" data-index="2">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"I love being able to connect with local animal helpers and organizations. It's a lifesaver for both animals and people who want to help!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <cite>Sam P.</cite>
+                                    <span>NGO Coordinator</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel-indicators">
+                        <span class="indicator active" data-slide="0"></span>
+                        <span class="indicator" data-slide="1"></span>
+                        <span class="indicator" data-slide="2"></span>
+                    </div>
+                    <button class="carousel-btn next" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
     
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Make a Difference?</h2>
+                <p>Join thousands of animal lovers making a real impact in their communities</p>
+                <div class="cta-buttons">
+                    <a href="signup.html" class="btn btn-primary">
+                        <i class="fas fa-paw"></i>
+                        Start Helping Today
+                    </a>
+                    <a href="ngo-signup.html" class="btn btn-outline">
+                        <i class="fas fa-building"></i>
+                        Register Your NGO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 A.W.W. Helpers. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>A.W.W. Helpers</span>
+                    </div>
+                    <p>Connecting hearts, helping paws, building a better world for animals.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="ngo-signup.html">NGO Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Partner with Us</a></li>
+                        <li><a href="#">Share Stories</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 A.W.W. Helpers. All Rights Reserved.</p>
+                <p>Made with <i class="fas fa-heart text-primary"></i> for animals everywhere</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <button class="fab" id="helpFab" aria-label="Get Help">
+            <i class="fas fa-question"></i>
+        </button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar">
+        <div class="progress-fill"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="index.js"></script>
 </body>

@@ -3,44 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A.W.W. Family Login</title>
+    <title>Login - Animal Welfare Web</title>
     <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Sticky Navigation Bar with Home Link -->
-    <nav class="navbar">
-        
-            <a href="index.html" class="logo">A.W.W. Helpers</a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="ngo-login.html">NGO/Helper Login</a></li>
-                <li><a href="ngo-signup.html">NGO/Helper Sign Up</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-            </ul>
-        
-    </nav>
-
-    <div class="container">
-        <div class="login-form">
-            <h2>Login</h2>
-            <form action="login.php" method="POST">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required><br><br>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required><br><br>
-
-                <button type="submit">Login</button>
-            </form>
-            <p class="signup-link">Don't have an account? <a href="ngo-signup.php">Sign up here</a></p>
-        </div>
-
-        <div class="animal-theme">
-            <img src="https://img.freepik.com/premium-vector/cute-cat-vector-white-background_1026278-3735.jpg" alt="Cat">
-            <img src="https://icons.iconarchive.com/icons/iconarchive/cute-animal/512/Cute-Dog-icon.png" alt="Dog">
-            <h3>Welcome to the A.W.W. Family</h3>
+    <!-- Background Elements -->
+    <div class="background-elements">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
         </div>
     </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-heart"></i>
+                    <span>A.W.W. Helpers</span>
+                </a>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                    <a href="ngo-login.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        NGO/Helper Login
+                    </a>
+                    <a href="ngo-signup.html" class="nav-link">
+                        <i class="fas fa-user-plus"></i>
+                        NGO/Helper Sign Up
+                    </a>
+                    <a href="login.html" class="nav-link active">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </a>
+                    <a href="signup.html" class="nav-link">
+                        <i class="fas fa-user-plus"></i>
+                        Sign Up
+                    </a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="signup-container">
+            <div class="signup-card">
+                <div class="signup-header">
+                    <div class="header-icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </div>
+                    <h1>Welcome Back</h1>
+                    <p>Sign in to your account to continue helping animals in need</p>
+                </div>
+
+                <form action="login.php" method="POST" class="signup-form">
+                    <div class="form-group">
+                        <label for="username">
+                            <i class="fas fa-user"></i>
+                            Username or Email
+                        </label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">
+                            <i class="fas fa-lock"></i>
+                            Password
+                        </label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="remember">
+                            <span class="checkmark"></span>
+                            Remember me for next time
+                        </label>
+                    </div>
+
+                    <button type="submit" class="signup-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </button>
+                </form>
+
+                <div class="signup-footer">
+                    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                </div>
+            </div>
+
+            <div class="welcome-section">
+                <div class="welcome-content">
+                    <h2>Welcome to the A.W.W. Family</h2>
+                    <p>Join thousands of animal lovers making a real difference in their communities</p>
+                    
+                    <div class="animal-showcase">
+                        <div class="animal-card">
+                            <img src="cat.png" alt="Rescued Cat">
+                            <span>Rescued Pets</span>
+                        </div>
+                        <div class="animal-card">
+                            <div class="animal-placeholder">
+                                <i class="fas fa-dog"></i>
+                            </div>
+                            <span>Happy Animals</span>
+                        </div>
+                    </div>
+
+                    <div class="features-highlight">
+                        <div class="feature-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Connect with NGOs</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-hands-helping"></i>
+                            <span>Volunteer Opportunities</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Find Local Helpers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>A.W.W. Helpers</span>
+                    </div>
+                    <p>Connecting hearts, helping paws, building a better world for animals.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="ngo-signup.html">NGO Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Partner with Us</a></li>
+                        <li><a href="#">Share Stories</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 A.W.W. Helpers. All Rights Reserved.</p>
+                <p>Made with <i class="fas fa-heart text-primary"></i> for animals everywhere</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="login.js"></script>
 </body>
 </html>
