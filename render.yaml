@@ -13,7 +13,11 @@ services:
     branch: main
     # The API imports @aww/shared, so the whole workspace has to be installed
     # and the shared package built before the API can compile.
-    buildCommand: npm ci && npm run build -w @aww/shared && npm run build -w @aww/api
+    #
+    # --include=dev is load-bearing: Render sets NODE_ENV=production, which
+    # makes npm skip devDependencies — and typescript + @types/node live there,
+    # so the build would fail with "Cannot find type definition file for 'node'".
+    buildCommand: npm ci --include=dev && npm run build -w @aww/shared && npm run build -w @aww/api
     startCommand: npm run start -w @aww/api
     healthCheckPath: /health
     autoDeploy: true
