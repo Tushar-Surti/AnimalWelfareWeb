@@ -1,0 +1,32 @@
+# Render blueprint for the A.W.W. Helpers API.
+#
+#   Render dashboard → New → Blueprint → point it at this repo.
+#
+# Secrets are marked sync:false so Render prompts for them at deploy time
+# instead of them living in git.
+services:
+  - type: web
+    name: aww-api
+    runtime: node
+    plan: free
+    region: singapore
+    branch: main
+    # The API imports @aww/shared, so the whole workspace has to be installed
+    # and the shared package built before the API can compile.
+    buildCommand: npm ci && npm run build -w @aww/shared && npm run build -w @aww/api
+    startCommand: npm run start -w @aww/api
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: '22'
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
