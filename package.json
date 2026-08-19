@@ -1,0 +1,26 @@
+{
+  "name": "aww-helpers",
+  "private": true,
+  "version": "2.0.0",
+  "description": "A.W.W. Helpers — a home for every paw. Animal rescue, adoption, fostering and lost-pet reunion platform.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "dev:web": "npm run dev -w @aww/web",
+    "dev:api": "npm run dev -w @aww/api",
+    "build": "npm run build -w @aww/shared && npm run build -w @aww/api && npm run build -w @aww/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "db:push": "node scripts/db-push.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.4.2",
+    "pg": "^8.23.0"
+  }
+}
