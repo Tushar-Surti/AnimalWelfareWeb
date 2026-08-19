@@ -50,7 +50,11 @@ function SignUpForm() {
           role: parsed.data.role,
           phone: parsed.data.phone ?? '',
         },
-        emailRedirectTo: `${window.location.origin}/dashboard`,
+        // Must point at the callback route — the confirmation link comes back
+        // as a PKCE code that needs exchanging before a session exists.
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=${
+          parsed.data.role === 'ngo' ? '/organizations/new' : '/dashboard'
+        }`,
       },
     });
 
