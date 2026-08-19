@@ -2,8 +2,28 @@ import type { Context } from 'hono';
 import type { Paginated } from '@aww/shared';
 import { camelize } from './case.js';
 
+/**
+ * Columns that exist for the database's benefit, not the client's. `location`
+ * is the PostGIS geography point — the same information the row already carries
+ * as lat/lng, but serialised as unreadable WKB hex. Stripping it here means no
+ * individual route has to remember to exclude it from a `select('*')`.
+ */
+const INTERNAL_COLUMNS = new Set(['location', 'total_count']);
+
+function stripInternal(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(stripInternal);
+  if (value === null || typeof value !== 'object' || value instanceof Date) return value;
+
+  const out: Record<string, unknown> = {};
+  for (const [key, val] of Object.entries(value as Record<string, unknown>)) {
+    if (INTERNAL_COLUMNS.has(key)) continue;
+    out[key] = stripInternal(val);
+  }
+  return out;
+}
+
 export function ok<T>(c: Context, data: T, status = 200) {
-  return c.json({ ok: true, data: camelize<T>(data) }, status as 200);
+  return c.json({ ok: true, data: camelize<T>(stripInternal(data)) }, status as 200);
 }
 
 export function created<T>(c: Context, data: T) {

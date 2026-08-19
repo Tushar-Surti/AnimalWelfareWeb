@@ -1,3 +1,6 @@
+// Loads apps/api/.env in development. A no-op in production, where Render
+// injects the real environment — dotenv simply finds no file and moves on.
+import 'dotenv/config';
 import { z } from 'zod';
 
 /** Fail at boot with a readable message rather than at 3am with `undefined`. */
