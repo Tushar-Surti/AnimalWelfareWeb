@@ -1,6 +1,7 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { Suspense, useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Loader2, SlidersHorizontal, Search } from 'lucide-react';
 import type { Animal, Paginated, Species, Sex, Size } from '@aww/shared';
 import { SPECIES, SPECIES_LABEL, SPECIES_EMOJI, SEX, SIZE } from '@aww/shared';
@@ -20,12 +21,17 @@ const AGE_BUCKETS = [
   { value: 0, label: 'Any age' },
 ];
 
-export default function AdoptPage() {
+function AdoptBoard() {
   const { centre, status: geoStatus, locate } = useGeolocation({ auto: true });
+  const params = useSearchParams();
 
+  // Deep links from the footer and shared URLs seed the initial filter state.
+  const [fosterOnly, setFosterOnly] = useState(params.get('fosterOnly') === 'true');
   const [nearMe, setNearMe] = useState(false);
   const [radiusKm, setRadiusKm] = useState(30);
-  const [species, setSpecies] = useState<Species[]>([]);
+  const [species, setSpecies] = useState<Species[]>(
+    (params.get('species')?.split(',').filter(Boolean) as Species[]) ?? [],
+  );
   const [sex, setSex] = useState<Sex[]>([]);
   const [size, setSize] = useState<Size[]>([]);
   const [maxAge, setMaxAge] = useState(0);
@@ -56,15 +62,16 @@ export default function AdoptPage() {
           limit: 36,
         })}`,
       );
-      setAnimals(result.items);
-      setTotal(result.total);
+      const items = fosterOnly ? result.items.filter((a) => a.fosterOnly) : result.items;
+      setAnimals(items);
+      setTotal(fosterOnly ? items.length : result.total);
     } catch (err) {
       setError((err as Error).message);
       setAnimals([]);
     } finally {
       setLoading(false);
     }
-  }, [nearMe, centre.lat, centre.lng, radiusKm, species, sex, size, maxAge, query]);
+  }, [nearMe, centre.lat, centre.lng, radiusKm, species, sex, size, maxAge, query, fosterOnly]);
 
   useEffect(() => {
     const timer = setTimeout(load, 300);
@@ -108,6 +115,16 @@ export default function AdoptPage() {
         {showFilters && (
           <div className="mb-8 space-y-5 rounded-[2rem] border-2 border-line bg-paper p-6">
             <div className="flex flex-wrap items-center gap-4">
+              <button
+                type="button"
+                onClick={() => setFosterOnly((v) => !v)}
+                aria-pressed={fosterOnly}
+                className={`rounded-full border-2 px-4 py-2 font-display text-sm font-semibold transition-colors ${
+                  fosterOnly ? 'border-lilac-deep bg-lilac text-white' : 'border-line bg-paper text-ink-soft'
+                }`}
+              >
+                🏠 Foster only
+              </button>
               <button
                 type="button"
                 onClick={() => {
@@ -217,5 +234,13 @@ export default function AdoptPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function AdoptPage() {
+  return (
+    <Suspense fallback={<div className="min-h-dvh" />}>
+      <AdoptBoard />
+    </Suspense>
   );
 }
