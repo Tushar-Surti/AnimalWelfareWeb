@@ -125,6 +125,9 @@ export default async function OrganizationPage({ params }: { params: Promise<{ s
               </article>
             )}
 
+            {/* Hidden entirely when both are zero — a brand-new shelter showing
+                "0 rescues handled" undersells itself for no reason. */}
+            {(org.stats.rescuesHandled > 0 || org.stats.animalsAvailable > 0) && (
             <div className="mt-6 grid grid-cols-2 gap-4">
               <div className="rounded-[1.5rem] border-2 border-sage/40 bg-sage-soft p-6 text-center">
                 <p className="font-display text-4xl font-bold text-sage-deep">{org.stats.rescuesHandled}</p>
@@ -139,6 +142,7 @@ export default async function OrganizationPage({ params }: { params: Promise<{ s
                 </p>
               </div>
             </div>
+            )}
 
             {animals.length > 0 && (
               <section className="mt-14">
