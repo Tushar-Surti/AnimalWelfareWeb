@@ -9,6 +9,7 @@ import { api, ApiError } from '@/lib/api';
 import { Badge } from '@/components/ui/badge';
 import { AdoptForm } from '@/components/animals/adopt-form';
 import { AnimalCard } from '@/components/cards/animal-card';
+import { Share } from '@/components/shared/share';
 import { HeartDoodle, Paw } from '@/components/ui/doodles';
 
 type AnimalDetail = Animal & { siblings?: Animal[] };
@@ -219,6 +220,11 @@ export default async function AnimalPage({ params }: { params: Promise<{ id: str
             </div>
 
             <AdoptForm animal={animal} />
+
+            <Share
+              title={`Adopt ${animal.name}`}
+              text={`${animal.name} is looking for a home. Someone you know might be the one.`}
+            />
           </aside>
         </div>
 

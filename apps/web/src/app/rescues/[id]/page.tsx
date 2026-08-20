@@ -12,6 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Timeline } from '@/components/rescues/timeline';
 import { RescueActions } from '@/components/rescues/actions';
 import { StaticMap } from '@/components/map/static-map';
+import { Share } from '@/components/shared/share';
 
 const URGENCY_TONE = { critical: 'critical', urgent: 'peach', stable: 'sage' } as const;
 const STATUS_TONE = {
@@ -178,6 +179,11 @@ export default async function RescuePage({ params }: { params: Promise<{ id: str
             )}
 
             <RescueActions rescue={rescue} />
+
+            <Share
+              title={rescue.title}
+              text={`${rescue.title} — an animal near ${rescue.city ?? 'here'} needs help. Seen on A.W.W. Helpers.`}
+            />
           </aside>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { SPECIES_LABEL, SPECIES_EMOJI, formatCurrency, formatDistance, timeAgo }
 import { api, ApiError } from '@/lib/api';
 import { Badge } from '@/components/ui/badge';
 import { StaticMap } from '@/components/map/static-map';
+import { Share } from '@/components/shared/share';
 import { HeartDoodle } from '@/components/ui/doodles';
 
 export const dynamic = 'force-dynamic';
@@ -224,6 +225,14 @@ export default async function LostFoundDetailPage({ params }: { params: Promise<
                 Call before you move the animal — the owner may be two streets away.
               </p>
             </div>
+            <Share
+              title={lost ? `Missing: ${name}` : `Found: ${name}`}
+              text={
+                lost
+                  ? `${name} went missing near ${post.city ?? 'here'}. Please keep an eye out.`
+                  : `A ${SPECIES_LABEL[post.species].toLowerCase()} was found near ${post.city ?? 'here'} — is this yours, or do you know whose?`
+              }
+            />
           </aside>
         </div>
       </div>
