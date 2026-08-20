@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, Bell, LogOut, LayoutDashboard, Siren } from 'lucide-react';
 import { useSession } from '@/hooks/use-session';
+import { api } from '@/lib/api';
 import { Paw } from '@/components/ui/doodles';
 import { ButtonLink } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -22,8 +23,9 @@ const LINKS = [
 
 export function Nav() {
   const pathname = usePathname();
-  const { user, loading, signOut } = useSession();
+  const { user, loading, signOut, token } = useSession();
   const [open, setOpen] = useState(false);
+  const [unread, setUnread] = useState(0);
   const [condensed, setCondensed] = useState(false);
   const { scrollY } = useScroll();
 
@@ -32,6 +34,26 @@ export function Nav() {
   useMotionValueEvent(scrollY, 'change', (y) => setCondensed(y > 40));
 
   useEffect(() => setOpen(false), [pathname]);
+
+  // Refreshed on navigation rather than on a timer — a background poll on every
+  // page for a badge is not worth the requests, and moving between pages is
+  // when someone would notice a stale count anyway.
+  const loadUnread = useCallback(async () => {
+    if (!token) {
+      setUnread(0);
+      return;
+    }
+    try {
+      const data = await api.get<{ unread: number }>('/api/notifications?limit=1', { token });
+      setUnread(data.unread);
+    } catch {
+      /* a cold API should never break the navbar */
+    }
+  }, [token]);
+
+  useEffect(() => {
+    void loadUnread();
+  }, [loadUnread, pathname]);
 
   // A fixed-position sheet over a scrollable body needs the body locked, or
   // the page scrolls underneath the open menu.
@@ -106,10 +128,20 @@ export function Nav() {
                 <div className="hidden items-center gap-2 lg:flex">
                   <Link
                     href="/dashboard/notifications"
-                    className="grid size-10 place-items-center rounded-full border-2 border-line bg-paper text-ink-soft transition-colors hover:border-blush hover:text-blush"
-                    aria-label="Notifications"
+                    className="relative grid size-10 place-items-center rounded-full border-2 border-line bg-paper text-ink-soft transition-colors hover:border-blush hover:text-blush"
+                    aria-label={unread > 0 ? `Notifications, ${unread} unread` : 'Notifications'}
                   >
                     <Bell className="size-[18px]" />
+                    {unread > 0 && (
+                      <motion.span
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: 'spring', stiffness: 500, damping: 18 }}
+                        className="absolute -right-1 -top-1 grid min-w-5 place-items-center rounded-full border-2 border-paper bg-blush px-1 font-display text-[0.65rem] font-bold leading-4 text-white"
+                      >
+                        {unread > 9 ? '9+' : unread}
+                      </motion.span>
+                    )}
                   </Link>
                   <Link
                     href="/dashboard"
